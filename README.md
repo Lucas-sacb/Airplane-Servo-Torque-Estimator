@@ -59,13 +59,15 @@ Where each component is:
     - To use your own value, type it in and press `Enter`.
     - To accept the suggested default value, simply press `Enter`.
 
-## Input Parameters Explained
+### Input Parameters Explained
 
 | Parameter | Prompt Text | Unit | Description |
 | :--- | :--- | :--- | :--- |
 | **Air Density** | `Air density (rho)` | kg/m³ | Density of the air. `1.225` is standard for sea level. |
 | **Aircraft Velocity**| `Aircraft velocity (V)` | m/s | The maximum expected speed of your aircraft. Torque increases with the square of velocity. |
-| **Hinge Moment Coeff.**| `Hinge Moment Coefficient (Ch)`| - | A non-dimensional factor. `-0.1` is a safe starting estimate for general sport flying. |
+| **Aileron Hinge Moment Coeff.** | `Aileron Hinge Moment Coefficient (Ch)` | - | Non-dimensional factor for the aileron. A higher default (`-0.15`) is suggested due to complex airflow and larger deflections common for ailerons. |
+| **Elevator Hinge Moment Coeff.** | `Elevator Hinge Moment Coefficient (Ch)` | - | Non-dimensional factor for the elevator. `-0.1` is a safe starting estimate for general sport flying. |
+| **Rudder Hinge Moment Coeff.** | `Rudder Hinge Moment Coefficient (Ch)` | - | Non-dimensional factor for the rudder. `-0.1` is a safe starting estimate for general sport flying. |
 | **Span** | `... span` | meters| The length of the control surface from end to end. For the elevator, this is one half. |
 | **Root Chord** | `... root chord` | meters | The width of the control surface at the end closest to the fuselage. |
 | **Tip Chord** | `... tip chord` | meters | The width of the control surface at the end furthest from the fuselage. |
@@ -81,7 +83,7 @@ The script provides the estimated torque in two common units:
 ### The Golden Rule: Safety Margin
 The results are a **theoretical minimum**. Real-world factors like linkage friction, propeller wash, and aggressive maneuvers will increase the required torque.
 
-**Always choose a servo with a rating of 1.5x to 2x the estimated torque.** For example, if the script estimates 5 kg-cm, you should choose a servo rated for 7.5 kg-cm to 10 kg-cm.
+**Always choose a servo with a rating of 1.2x to 1.5x the estimated torque.** For example, if the script estimates 2.22 kg-cm, you should choose a servo rated for 2.66 kg-cm to 3.33 kg-cm.
 
 ### Ailerons vs. Elevator
 * **Ailerons:** The calculation is for a **single aileron**. You will need **two servos**, each meeting the calculated torque requirement.
